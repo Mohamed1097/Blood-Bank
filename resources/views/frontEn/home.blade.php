@@ -13,7 +13,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item carousel-1 active">
-                    <div class="container info">
+                    <div class="container info en">
                         <div class="col-lg-5">
                             <h3>Blood bank moving forward to better health</h3>
                             <p>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="carousel-item carousel-2">
-                    <div class="container info">
+                    <div class="container info en">
                         <div class="col-lg-5">
                             <h3>Blood bank moving forward to better health</h3>
                             <p>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="carousel-item carousel-3">
-                    <div class="container info">
+                    <div class="container info en">
                         <div class="col-lg-5">
                             <h3>Blood bank moving forward to better health</h3>
                             <p>

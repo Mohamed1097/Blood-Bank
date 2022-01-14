@@ -536,6 +536,10 @@ p {
     align-items: center;
     justify-content: right;
 }
+.intro .carousel .carousel-inner .carousel-item .en
+{
+    justify-content: left;
+}
 
 .intro .carousel .carousel-inner .carousel-item .info h3 {
     color: #a70f14;

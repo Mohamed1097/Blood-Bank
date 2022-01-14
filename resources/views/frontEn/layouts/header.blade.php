@@ -58,10 +58,13 @@
                             <i class="fas fa-phone-alt"></i>
                             Contact Us
                         </a>
-                        <a class="dropdown-item" href="index.html">
+                        <a href="{{ route('client.logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="logout-form dropdown-item">
                             <i class="fas fa-sign-out-alt"></i>
                             Log Out
                         </a>
+                        <form id="logout-form" action="{{ route('client.logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </div>
                 </div>
             </div>

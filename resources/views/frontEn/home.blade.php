@@ -77,7 +77,7 @@
                         <div class="card">
                             <div class="photo">
                                 <img src={{asset('images/'.$post->image)}} class="card-img-top" alt="...">
-                                <a href="article-details.html" class="click">المزيد</a>
+                                <a href="article-details.html" class="click">More</a>
                             </div>
                             <a class="favourite">
                                 <i url={{route('client.toggle-favourite')}} class="far fa-heart @if ($post->clients()->exists(auth()->user()->id))
@@ -155,7 +155,7 @@
                             <li><span>Hospital Address:</span>{{$donationRequest->hospital_address}}</li>
                             <li><span>City:</span>{{$donationRequest->city->name}}</li>
                         </ul>
-                        <a href="inside-request.html">التفاصيل</a>
+                        <a href="inside-request.html">Details</a>
                     </div>    
                     @endforeach  
                     @else

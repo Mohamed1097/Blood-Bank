@@ -19,11 +19,21 @@
                                 <img src={{asset('imgs/logo.png')}}>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الالكنروني" name="phone">
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="الهاتف" name="phone">
                             </div>
+                            @error('phone.required')
+                            <small class="text-danger">{{__('message.phone')}}</small>  
+                            @enderror
                             <div class="form-group">
                                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="كلمة المرور" name="password">
                             </div>
+                            @error('password.required')
+                            <small class="text-danger">{{__('message.password')}}</small>  
+                            @enderror
+                            @error('failed')
+                            <small class="text-danger">{{__('message.failed')}}</small>  
+                            @enderror
+                            
                             <div class="row options">
                                 <div class="col-md-6 remember">
                                     <div class="form-group form-check">
@@ -38,10 +48,10 @@
                             </div>
                             <div class="row buttons">
                                 <div class="col-md-6 right">
-                                    <button href="#">دخول</button>
+                                    <button>دخول</button>
                                 </div>
                                 <div class="col-md-6 left">
-                                    <a href="create-account.html">انشاء حساب جديد</a>
+                                    <a href={{route('client.register')}}>انشاء حساب جديد</a>
                                 </div>
                             </div>
                         </form>

@@ -9,12 +9,22 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    public function login(Request $request)
+    {
+        if($request->route()->getPrefix()=='/en')
+        return view('frontEn.login',['title'=>'Login']);
+        return view('front.login',['title'=>'تسجيل الدخول']);
+    }
     public function check(Request $request)
     {
-        $validator=validator()->make($request->all(),['phone'=>'required','password'=>'required']);
+        $messages=[
+            'phone.required'=>__('message.phone'),
+            'password.required'=>__('message.password')
+        ];
+        $validator=validator()->make($request->all(),['phone'=>'required','password'=>'required'],$messages);
         if($validator->fails())
         {
-            return redirect()->back()->withErrors(['fail'=>'email Or Password Is Invalid']);
+            return redirect()->back()->withErrors($messages);
         }
         
         $creds = $request->only('phone','password');
@@ -24,7 +34,7 @@ class AuthController extends Controller
         }
         else
         {
-            return redirect()->back()->withErrors(['fail'=>'email Or Password Is Invalid']);
+            return redirect()->back()->withErrors(['failed'=>__('message.failed')]);
         }
     }
     public function logout()

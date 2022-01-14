@@ -174,7 +174,6 @@ $('.modal-footer .delete').click(function()
         }
         window.location=url.substring(0, url.length - 1);
         
-        
       }
     }
 })
@@ -248,5 +247,6 @@ $('#governorates').change(function(event) {
 
 	});
 });
+
 
 

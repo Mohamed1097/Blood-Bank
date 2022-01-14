@@ -2,13 +2,13 @@
  <div class="upper-bar">
     <div class="container">
         <div class="row">
-            {{-- <div class="col-lg-4 col-md-6 d-none">
+            <div class="col-lg-4 col-md-4">
                 <div class="language">
-                    <a href="index.html" class="ar active">عربى</a>
-                    <a href="index-ltr.html" class="en inactive">EN</a>
+                    <a href={{LaravelLocalization::getLocalizedURL('ar')}} class="ar active">عربى</a>
+                    <a href={{LaravelLocalization::getLocalizedURL('en')}} class="en inactive">EN</a>
                 </div>
-            </div> --}}
-            <div class="col-lg-6 col-md-6">
+            </div>
+            <div class="col-lg-4 col-md-4">
                 <div class="social">
                     <div class="icons">
                         <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
@@ -20,7 +20,7 @@
             </div>
             
             <!-- not a member-->
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="info" dir="ltr">
                     <div class="phone">
                         <i class="fas fa-phone-alt"></i>

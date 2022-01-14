@@ -69,5 +69,10 @@ class Kernel extends HttpKernel
         'permission' => \Mindscms\Entrust\Middleware\EntrustPermission::class,
         'ability' => \Mindscms\Entrust\Middleware\EntrustAbility::class,
         'auto-check-permission'=>\App\Http\Middleware\AutoCheckPermission::class,
+        'localize'                => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
+        'localizationRedirect'    => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
+        'localeSessionRedirect'   => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
+        'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
+        'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
     ];
 }

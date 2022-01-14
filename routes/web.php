@@ -15,6 +15,7 @@ use App\Http\controllers\RoleController;
 use App\Http\controllers\UserController;
 use App\Http\Controllers\front\AuthController;
 use App\Http\Controllers\front\MainController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,11 +35,15 @@ use App\Http\Controllers\front\MainController;
 // );
 
 Auth::routes();
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+], function()
+{
 Route::group(['namespace'=>'front'],function(){
     Route::name('client.')->group(function(){
   
         Route::middleware(['guest:web-client','PreventBackHistory'])->group(function(){
-              Route::view('login','front.login',['title'=>'Login'])->name('login');
+              Route::get('login',[AuthController::class,'login'])->name('login');
               Route::post('check',[AuthController::class,'check'])->name('check');
               Route::view('register', 'front.register',['title'=>'Create New Account'])->name('register');
         });
@@ -52,7 +57,7 @@ Route::group(['namespace'=>'front'],function(){
     });
 });
 
-
+});
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware(['guest:web','PreventBackHistory'])->group(function(){

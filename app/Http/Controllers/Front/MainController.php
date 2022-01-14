@@ -12,13 +12,13 @@ class MainController extends Controller
 {
     public function home(Request $request)
     {
-        $title='Blood Bank';
+        $title=__('message.title');
         $postMessage=null;
         $donationRequestMessage=null;
         $posts=Post::take(5)->get();
         if(!$posts->count())
         {
-         $postMessage='لا يوجد منشورات';   
+         $postMessage=__('message.postMessage');  
         }
         $donationRequests=new DonationRequest();
         $validator=validator()->make($request->all(),[
@@ -32,13 +32,18 @@ class MainController extends Controller
             if(!$donationRequests->count())
             {
                 $donationRequests=$donationRequests->get();
-                $donationRequestMessage='لا توجد طلبات تبرع بالدم';
+                $donationRequestMessage=__('message.donationMessage');
+                if($request->route()->getPrefix()=='/ar')
                 return view('front.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
+                return view('frontEn.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
             }
             else
             {
                 $donationRequests=$donationRequests->get(); 
+                if($request->route()->getPrefix()=='/en')
+                return view('frontEn.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
                 return view('front.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
+                
             }
         }
         if($request->has('city_id'))
@@ -54,7 +59,10 @@ class MainController extends Controller
             $donationRequestMessage='لا توجد طلبات تبرع بالدم';
         }
         $donationRequests=$donationRequests->take(4)->get();
+        if($request->route()->getPrefix()=='/en')
+        return view('frontEn.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
         return view('front.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
+        
     }
     public function toggleFavourite(Request $request)
     {

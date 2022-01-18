@@ -536,10 +536,6 @@ p {
     align-items: center;
     justify-content: right;
 }
-.intro .carousel .carousel-inner .carousel-item .en
-{
-    justify-content: left;
-}
 
 .intro .carousel .carousel-inner .carousel-item .info h3 {
     color: #a70f14;
@@ -627,13 +623,6 @@ p {
     top: 6px;
     left: 6px;
     z-index: 5;
-}
-.articles .view .articles-carousel .card .favourite i:hover{
-    background-color: red;
-}
-.articles .view .articles-carousel .card .favourite .red-heart
-{
-    background-color: red;
 }
 
 .articles .view .articles-carousel .card .photo img {
@@ -1178,29 +1167,6 @@ select {
 }
 
 .signin-account .form .signin-form form .buttons .right a:hover {
-    color: #3ab54a;
-    background-color: #FFF;
-    outline: 2px auto #3ab54a;
-    transition: all 0.25s ease-in-out;
-    -webkit-transition: all 0.25s ease-in-out;
-    -moz-transition: all 0.25s ease-in-out;
-    -ms-transition: all 0.25s ease-in-out;
-    -o-transition: all 0.25s ease-in-out;
-}
-.signin-account .form .signin-form form .buttons .right button {
-    padding: 15px 0;
-    margin: 10px 0;
-    font-size: 20px;
-    border-radius: 0;
-    color: #FFF;
-    border: none;
-    width: 90%;
-    background-color: #3ab54a;
-    text-align: center;
-    text-decoration: none;
-}
-
-.signin-account .form .signin-form form .buttons .right button:hover {
     color: #3ab54a;
     background-color: #FFF;
     outline: 2px auto #3ab54a;

@@ -48,7 +48,7 @@
                             </div>
                             <div class="row buttons">
                                 <div class="col-md-6 right">
-                                    <button>دخول</button>
+                                    <a>دخول</a>
                                 </div>
                                 <div class="col-md-6 left">
                                     <a href={{route('client.register')}}>انشاء حساب جديد</a>

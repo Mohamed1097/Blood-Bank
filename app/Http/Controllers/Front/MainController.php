@@ -33,15 +33,11 @@ class MainController extends Controller
             {
                 $donationRequests=$donationRequests->get();
                 $donationRequestMessage=__('message.donationMessage');
-                if($request->route()->getPrefix()=='/ar')
                 return view('front.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
-                return view('frontEn.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
             }
             else
             {
                 $donationRequests=$donationRequests->get(); 
-                if($request->route()->getPrefix()=='/en')
-                return view('frontEn.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
                 return view('front.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
                 
             }
@@ -56,11 +52,9 @@ class MainController extends Controller
         }
         if(!$donationRequests->count())
         {
-            $donationRequestMessage='لا توجد طلبات تبرع بالدم';
+            $donationRequestMessage=__('message.donationMessage');
         }
         $donationRequests=$donationRequests->take(4)->get();
-        if($request->route()->getPrefix()=='/en')
-        return view('frontEn.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
         return view('front.home',compact('title','donationRequests','posts','postMessage','donationRequestMessage'));
         
     }

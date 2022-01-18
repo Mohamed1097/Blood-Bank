@@ -4,8 +4,16 @@
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <div class="language">
-                    <a href={{LaravelLocalization::getLocalizedURL('ar')}} class="ar active">عربى</a>
-                    <a href={{LaravelLocalization::getLocalizedURL('en')}} class="en inactive">EN</a>
+                    <a href={{LaravelLocalization::getLocalizedURL('ar')}} class="ar @if (LaravelLocalization::getCurrentLocale()=='ar')
+                    active
+                    @else
+                    inactive
+                    @endif">عربى</a>
+                    <a href={{LaravelLocalization::getLocalizedURL('en')}} class="en @if (LaravelLocalization::getCurrentLocale()=='en')
+                    active
+                    @else
+                    inactive
+                    @endif">EN</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4">

@@ -11,8 +11,6 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        if($request->route()->getPrefix()=='/en')
-        return view('frontEn.login',['title'=>'Login']);
         return view('front.login',['title'=>'تسجيل الدخول']);
     }
     public function check(Request $request)
@@ -29,8 +27,11 @@ class AuthController extends Controller
         
         $creds = $request->only('phone','password');
         if( Auth::guard('web-client')->attempt($creds) ){
-         
-            return redirect(route('client.home'));
+            if(Auth::guard('web-client')->user()->is_active==1)
+            {
+                return redirect(route('client.home'));
+            }
+            return $this->logout();
         }
         else
         {

@@ -15,19 +15,33 @@
         @csrf
         <div class="card-body">
           <div class="form-group">
-            <label for="title">title</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Enter The Title">
+            <label for="title">العنوان</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="ادخل عنوان المنشور">
             @error('title')
             <small style="color: #dc3545">{{ $message }}</small> 
             @enderror
         </div>
         <div class="form-group">
-          <label for='content'>Content</label>
-          <textarea id="summernote" style="display: none;" name='content' placeholder="Enter The Post Body"></textarea>
+          <label for='content'>المحتوى</label>
+          <textarea id="summernote" style="display: none;" name='content' placeholder="ادخل محتوى المنشور"></textarea>
           @error('content')
             <small style="color: #dc3545">{{ $message }}</small> 
           @enderror
         </div>
+        <div class="form-group">
+          <label for="title">title</label>
+          <input type="text" class="form-control" id="title_en" name="title_en" placeholder="ُEnter The Post Title">
+          @error('title_en')
+          <small style="color: #dc3545">{{ $message }}</small> 
+          @enderror
+      </div>
+      <div class="form-group">
+        <label for='content'>Content</label>
+        <textarea class="summernote" style="display: none;" name='content_en' placeholder="Enter The Post Content"></textarea>
+        @error('content_en')
+          <small style="color: #dc3545">{{ $message }}</small> 
+        @enderror
+      </div>
             <div class="form-group">
                 <label for="PostCategory">PostCategory</label>
                 <select name="post_category_id" id="post_category" class="form-control">

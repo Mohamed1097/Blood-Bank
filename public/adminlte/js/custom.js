@@ -205,12 +205,12 @@ function toggle(heart,event)
 		if(data.status==1)
 		{
 			let currnetClass=$(heart).attr('class');
-			if (currnetClass.includes('red-heart')) {
-				$(heart).removeClass('red-heart')
+			if (currnetClass.includes('red')) {
+				$(heart).removeClass('red')
 			}
 			else
 			{
-				$(heart).addClass('red-heart')
+				$(heart).addClass('red')
 			}
 		}
 	});

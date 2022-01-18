@@ -611,7 +611,16 @@ p {
 .articles .view .articles-carousel .card .photo {
     position: relative;
 }
-
+.articles .view .articles-carousel .card .favourite i.red
+{
+    color: red;
+    background-color: white;
+} 
+.articles .view .articles-carousel .card .favourite i:hover
+{
+    color: red;
+    background-color: white;
+} 
 .articles .view .articles-carousel .card .favourite i {
     position: absolute;
     background-color: #2d3e50;
@@ -623,7 +632,10 @@ p {
     top: 6px;
     left: 6px;
     z-index: 5;
+    cursor: default;
+
 }
+
 
 .articles .view .articles-carousel .card .photo img {
     position: relative;

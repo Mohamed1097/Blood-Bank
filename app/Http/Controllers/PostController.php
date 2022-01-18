@@ -39,8 +39,10 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validator=validator()->make($request->all(),[
-            'image' => 'mimes:jpeg,jpg,png,gif|required|max:2000000',
+            'image' => 'mimes:jpeg,jpg,png,gif|required|max:2048',
             'title'=>'required',
+            'title_en'=>'required|string',
+            'content_en'=>'required|string',
             'content'=>'required',
             'post_category_id'=>'required|exists:post_categories,id'
             ]);
@@ -50,9 +52,13 @@ class PostController extends Controller
         }
         $imageName = $request->image->hashName();
         $request->image->move(public_path('images'), $imageName);
-        $Post=Post::create($request->except(['image']));
-        $Post->image=$imageName;
-        $Post->save();
+        $post=Post::create($request->except(['image']));
+        $post->image=$imageName;
+        $post->setTranslation('title', 'ar', $request->title);
+        $post->setTranslation('title', 'en', $request->title_en);
+        $post->setTranslation('content', 'ar', $request->content);
+        $post->setTranslation('content', 'en', $request->content_en);
+        $post->save();
         return redirect(route('admin.post.index'));
     }
 
@@ -89,7 +95,7 @@ class PostController extends Controller
     {
         $post=Post::findOrFail($id);
         $rules=[
-            'image' => 'mimes:jpeg,jpg,png,gif|max:2000000',
+            'image' => 'mimes:jpeg,jpg,png,gif|max:2048',
             'title'=>'required',
             'content'=>'required',
             'post_category_id'=>'required|exists:post_categories,id'

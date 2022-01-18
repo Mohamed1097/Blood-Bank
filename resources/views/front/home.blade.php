@@ -82,7 +82,7 @@
                                     </div>
                                     <a class="favourite">
                                         <i url={{route('client.toggle-favourite')}} class="far fa-heart @if ($post->clients()->exists(auth()->user()->id))
-                                            red-heart
+                                            red
                                         @endif" onclick="toggle(this)" id="{{$post->id}}"></i>
                                     </a>
                                     <div class="card-body">

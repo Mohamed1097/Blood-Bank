@@ -316,6 +316,7 @@
    $(document).ready(function() {
   $('#summernote').summernote();
   $('#about-summernote').summernote();
+  $('.summernote').summernote();
 });
 
   if(document.querySelectorAll("ul.pagination").length>0)
